@@ -13,6 +13,7 @@
   "author": "Elliot Griffiss",
   "license": "ISC",
   "dependencies": {
+    "@pixi/sound": "^6.0.0",
     "file-loader": "^6.2.0",
     "fontfaceobserver": "^2.3.0",
     "gsap": "^3.12.5",

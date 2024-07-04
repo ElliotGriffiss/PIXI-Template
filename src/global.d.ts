@@ -5,4 +5,5 @@ declare global {
     var __PIXI_APP__: Application;
     var preload: any;
     var game: any;
+    var sound: any;
 }

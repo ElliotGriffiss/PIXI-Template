@@ -1,16 +1,18 @@
-import { Sprite, Text } from "pixi.js";
+import {Container, Sprite, Text} from "pixi.js";
+import {sound} from '@pixi/sound';
 import gsap from "gsap";
 
 import Button from "./engine/Button/Button";
 import Animation from "./engine/Animation/Animation";
+import Timings from "./engine/Utils/Timings/Timings";
 
-export class Game {
-
+class Game {
     constructor() {
         this._createSprites();
         this._createText();
         void this._playAnimations();
         this._createTween();
+        this._createSoundButton();
     }
 
     private _createSprites(): void {
@@ -102,6 +104,25 @@ export class Game {
         gsap.fromTo(tweenTarget, {pixi: {positionX: 280}}, {pixi: {positionX: 320}, duration: 1, ease: "sine.inOut", yoyo: true, repeat: -1});
 
         global.app.stage.addChild( tweenTarget );
+    }
+
+    private _createSoundButton(): void {
+        const button = new Button(
+            async ()=> {
+                button.isActive = false;
+                sound.play('Pickup_Coin');
+                await Timings.wait(563);
+                button.isActive = true;
+            },
+            {
+                active: global.game.ButtonActive,
+                pressed: global.game.ButtonPressed,
+                inactive: global.game.ButtonInactive
+            }
+        );
+        button.position = {x:280, y: 250};
+
+        global.app.stage.addChild( button );
     }
 }
 

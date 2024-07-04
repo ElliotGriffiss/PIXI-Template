@@ -22,6 +22,7 @@ class Loader {
             global.game = await Assets.loadBundle("game", (progress)=> {
                 this._loadingScreen.updateProgress(progress);
             }),
+            global.sound = await Assets.loadBundle("sound"),
             ...( AssetsManifest.bundles[0].assets.map(async ({name})=> {
                     const font = new FontFaceObserver(name);
                     return await font.load().then(function () {
