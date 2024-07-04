@@ -31,7 +31,7 @@ function GenerateFromDirectory(Directory) {
 GenerateFromDirectory('src/assets');
 
 
-fs.writeFile("src/AssetManifest.json", JSON.stringify( {bundles}
+fs.writeFile("src/AssetManifest.json", JSON.stringify( {bundles}, null, 4
 ),function(err) {
     if (err) {
         console.log(err);
