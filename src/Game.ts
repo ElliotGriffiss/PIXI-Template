@@ -6,8 +6,10 @@ import Button from "./engine/Button/Button";
 import Animation from "./engine/Animation/Animation";
 import Timings from "./engine/Utils/Timings/Timings";
 
-class Game {
+class Game extends Container{
     constructor() {
+        super();
+
         this._createSprites();
         this._createText();
         void this._playAnimations();
@@ -22,7 +24,7 @@ class Game {
         const sprite2 = Sprite.from(global.game['Sprite2']);
         sprite2.position = {x: 150, y: 50};
 
-        global.app.stage.addChild( sprite1, sprite2 );
+        this.addChild( sprite1, sprite2 );
     }
 
     private _createText(): void {
@@ -52,7 +54,7 @@ class Game {
         }});
         text3.position = {x: 300, y: 80};
 
-        global.app.stage.addChild( text1, text2, text3 );
+        this.addChild( text1, text2, text3 );
     }
 
     private async _playAnimations(): Promise<void> {
@@ -86,7 +88,7 @@ class Game {
         );
         button.position = {x:35, y: 250};
 
-        global.app.stage.addChild( animation1, animation2, button );
+        this.addChild( animation1, animation2, button );
 
         void animation2.play();
     }
@@ -103,7 +105,7 @@ class Game {
 
         gsap.fromTo(tweenTarget, {pixi: {positionX: 280}}, {pixi: {positionX: 320}, duration: 1, ease: "sine.inOut", yoyo: true, repeat: -1});
 
-        global.app.stage.addChild( tweenTarget );
+        this.addChild( tweenTarget );
     }
 
     private _createSoundButton(): void {
@@ -122,7 +124,7 @@ class Game {
         );
         button.position = {x:280, y: 250};
 
-        global.app.stage.addChild( button );
+        this.addChild( button );
     }
 }
 
