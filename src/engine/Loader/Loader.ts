@@ -10,7 +10,6 @@ class Loader {
     async _preload(): Promise<void> {
         await Assets.init({manifest: AssetsManifest});
         global.preload = await Assets.loadBundle("preload");
-
     }
 
     createLoadingScreen(): void {

@@ -15,6 +15,7 @@
   "dependencies": {
     "file-loader": "^6.2.0",
     "fontfaceobserver": "^2.3.0",
+    "gsap": "^3.12.5",
     "pixi.js": "^8.2.1",
     "typescript": "^5.3.3"
   },

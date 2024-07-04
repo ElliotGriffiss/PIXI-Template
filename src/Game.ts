@@ -1,4 +1,6 @@
 import { Sprite, Text } from "pixi.js";
+import gsap from "gsap";
+
 import Button from "./engine/Button/Button";
 import Animation from "./engine/Animation/Animation";
 
@@ -95,7 +97,9 @@ export class Game {
                 fill: "#FFFFFF",
                 align: 'center'
         }});
-        tweenTarget.position = {x: 300, y: 190};
+        tweenTarget.position = {x: 280, y: 110};
+
+        gsap.fromTo(tweenTarget, {pixi: {positionX: 280}}, {pixi: {positionX: 320}, duration: 1, ease: "sine.inOut", yoyo: true, repeat: -1});
 
         global.app.stage.addChild( tweenTarget );
     }
