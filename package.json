@@ -15,8 +15,7 @@
   "dependencies": {
     "file-loader": "^6.2.0",
     "fontfaceobserver": "^2.3.0",
-    "lodash": "^4.17.21",
-    "pixi.js": "^7.4.0",
+    "pixi.js": "^8.2.1",
     "typescript": "^5.3.3"
   },
   "devDependencies": {

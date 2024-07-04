@@ -15,6 +15,7 @@ function GenerateFromDirectory(Directory) {
 
                 assets.push( {
                     name: fileName.split("."[0])[0],
+                    alias: fileName.split("."[0])[0],
                     src: fullPath.replace("src\\", "")
                 });
             });

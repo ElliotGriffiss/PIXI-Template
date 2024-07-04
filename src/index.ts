@@ -7,8 +7,10 @@ import Loader from "./engine/Loader/Loader";
 /// Global Class To Handle Game Management
 export class PixiAppManager {
     constructor() {
-        const app = new PIXI.Application({
-            view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
+        const app = new PIXI.Application();
+
+        void app.init({
+            canvas: document.getElementById("pixi-canvas") as HTMLCanvasElement,
             resolution: window.devicePixelRatio || 1,
             autoDensity: true,
             backgroundColor: "#000000",

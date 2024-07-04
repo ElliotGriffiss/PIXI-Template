@@ -47,9 +47,9 @@ class Animation extends Container {
         }
     }
 
-    private _update(deltaTime: number): void {
+    private _update(ticker: Ticker): void {
         const modifier = this._settings.speedModifier;
-        const elapsed = modifier * deltaTime;
+        const elapsed = modifier * ticker.deltaTime;
         this._currentTime += elapsed;
 
         const  floor = Math.floor(this._currentTime);
