@@ -6,6 +6,8 @@ import LoadingScreen from "../LoadingScreen/LoadingScreen";
 
 class Loader {
     private _loadingScreen: LoadingScreen = null;
+    private _assetsProgress: number = 0;
+    private _soundProgress: number = 0;
 
     async _preload(): Promise<void> {
         await Assets.init({manifest: AssetsManifest});
@@ -16,13 +18,14 @@ class Loader {
         this._loadingScreen = new LoadingScreen();
         global.app.stage.addChild(this._loadingScreen);
     }
-
     async load(): Promise<void> {
         await Promise.all( [
             global.game = await Assets.loadBundle("game", (progress)=> {
-                this._loadingScreen.updateProgress(progress);
+                this._updateSoundProgress(progress);
             }),
-            global.sound = await Assets.loadBundle("sound"),
+            global.sound = await Assets.loadBundle("sound", (progress) => {
+                this._updateAssetProgress(progress);
+            }),
             ...( AssetsManifest.bundles[0].assets.map(async ({name})=> {
                     const font = new FontFaceObserver(name);
                     return await font.load().then(function () {
@@ -32,6 +35,16 @@ class Loader {
                 })
             )
         ]);
+    }
+
+    private _updateAssetProgress(progress: number): void {
+        this._assetsProgress = progress / 2;
+        this._loadingScreen.updateProgress(this._assetsProgress + this._soundProgress);
+    }
+
+    private _updateSoundProgress(progress: number): void {
+        this._soundProgress = progress / 2;
+        this._loadingScreen.updateProgress(this._assetsProgress + this._soundProgress);
     }
 
     destroyLoadingScreen(): void {
