@@ -28,7 +28,7 @@ function GenerateFromDirectory(Directory) {
     });
 }
 
-GenerateFromDirectory('src/assets');
+GenerateFromDirectory('src/Assets');
 
 
 fs.writeFile("src/AssetManifest.json", JSON.stringify( {bundles}, null, 4
