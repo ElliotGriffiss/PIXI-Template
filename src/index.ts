@@ -5,7 +5,7 @@ import "./style.css";
 import {gsap} from 'gsap';
 import { PixiPlugin } from "gsap/PixiPlugin";
 
-import Loader from "./engine/Loader/Loader";
+import Loader from "./Engine/Loader/Loader";
 
 /// Global Class To Handle Game Management
 export class PixiAppManager {
