@@ -23,14 +23,14 @@ class Button extends Container {
         this._pressedSprite = Sprite.from(constructor.pressed);
         this._inactiveSprite = Sprite.from(constructor.inactive);
 
-        this.eventMode = 'static';
-        this.cursor = 'Pointer';
 
         this._pressedSprite.visible = false;
         this._inactiveSprite.visible = false;
 
         this.addChild(this._activeSprite, this._pressedSprite, this._inactiveSprite);
 
+        this.eventMode = 'static';
+        this.cursor = 'Pointer';
         this.on("pointerup", this._onButtonReleased, this);
         this.on("pointerdown", this._onButtonPressed, this);
         this.on("pointerout", this._cancel, this);
