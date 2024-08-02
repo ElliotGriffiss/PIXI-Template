@@ -22,7 +22,9 @@ export class PixiAppManager {
         });
 
         global.app = app;
+        // #!if ENV === "development"
         globalThis.__PIXI_APP__ = app;
+        // #!endif
 
         // Register app with GSAP.
         PixiPlugin.registerPIXI(app);
