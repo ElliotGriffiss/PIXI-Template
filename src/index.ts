@@ -1,4 +1,4 @@
-import * as PIXI from 'pixi.js';
+import {Application} from "pixi.js";
 import Game from './Game';
 import "./style.css";
 
@@ -10,7 +10,7 @@ import Loader from "./Engine/Loader/Loader";
 /// Global Class To Handle Game Management
 export class PixiAppManager {
     constructor() {
-        const app = new PIXI.Application();
+        const app = new Application();
 
         void app.init({
             canvas: document.getElementById("pixi-canvas") as HTMLCanvasElement,
