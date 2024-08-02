@@ -5,6 +5,7 @@ import gsap from "gsap";
 import Button from "./Engine/Button/Button";
 import Animation from "./Engine/Animation/Animation";
 
+import Random from "./Engine/Utils/Random/Random";
 import Timings from "./Engine/Utils/Timings/Timings";
 
 class Game extends Container{
@@ -16,6 +17,7 @@ class Game extends Container{
         void this._playAnimations();
         this._createTween();
         this._createSoundButton();
+        this._createRandomNumberGenerator();
     }
 
     private _createSprites(): void {
@@ -126,6 +128,31 @@ class Game extends Container{
         button.position = {x:280, y: 250};
 
         this.addChild( button );
+    }
+
+    private _createRandomNumberGenerator(): void {
+        const text1 = new Text({ text: '0', style: {
+                fontFamily: '04b30',
+                fontSize: 24,
+                fill: "#FFFFFF",
+                align: 'center'
+            }});
+        text1.position = {x: 330, y: 170};
+        text1.anchor.set(0.5);
+
+        const button = new Button(
+            async ()=> {
+                text1.text = Random.range(0, 100);
+            },
+            {
+                active: global.game.ButtonActive,
+                pressed: global.game.ButtonPressed,
+                inactive: global.game.ButtonInactive
+            }
+        );
+        button.position = {x:280, y: 190};
+
+        this.addChild( text1, button );
     }
 }
 
