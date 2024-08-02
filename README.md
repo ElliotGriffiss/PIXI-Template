@@ -20,7 +20,7 @@ Checks files for errors and inconsistencies
 npm run lint
 ```
 
-Generates an AssetManifest.json using the assets folder.
+Generates an AssetManifest.json using the assets' folder.
 ```
 npm run generate-asset-manifest
 ```
@@ -30,7 +30,12 @@ Run and watches a build on http://localhost:8080/
 npm run build-dev:watch
 ```
 
+Creates a build of the project ready for testing.
+```
+npm run build-dev
+```
+
 Creates a finished build of the project ready for upload.
 ```
-npm run build-only
+npm run build-prod
 ```
