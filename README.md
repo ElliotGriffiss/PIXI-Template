@@ -2,16 +2,16 @@
 
 A Pixi.js, TypeScript, webpack bunder to help you get started quicker.
 
+## Requirements
+
+Node and NPM
+
 ## Setup
 
 simply run
 ```
 npm install
 ```
-
-## Requirements
-
-Node and NPM
 
 ## Build Scripts
 
