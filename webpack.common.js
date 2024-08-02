@@ -31,7 +31,7 @@ module.exports = {
             // all files with a `.ts`, `.cts`, `.mts` or `.tsx` extension will be handled by `ts-loader`
             {
                 test: /\.([cm]?ts|tsx)$/,
-                loader: "ts-loader"
+                loader: "ts-loader",
             },
             {
                 test: /\.(jpe?g|png|gif)$/,
